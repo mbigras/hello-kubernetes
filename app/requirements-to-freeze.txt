@@ -1,0 +1,3 @@
+# Manage Python dependencies like A Better Pip Workflow™—see https://kennethreitz.org/essays/2016/02/25/a-better-pip-workflow.
+Flask
+Gunicorn
