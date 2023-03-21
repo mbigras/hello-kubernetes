@@ -1,0 +1,23 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: app
+spec:
+  selector:
+    matchLabels:
+      app: app
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+        - name: app
+          image: app
+          imagePullPolicy: Never # You should build your _app_ local Docker image before you apply this Kubernetes YAML to Kubernetes on Docker Desktop on your laptop—see https://github.com/kubernetes/api/blob/bad7d34a01c9f8a0d49727440da0f8f3d68d84bd/core/v1/types.go#L2502-L2508.
+          envFrom:
+            - configMapRef:
+                name: app
+            - secretRef:
+                name: app

@@ -1,0 +1,7 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: app
+data:
+  ENV: docker-desktop
+  FEATURES: speed=fast,stability=unstable,experimental=true
