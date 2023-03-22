@@ -42,7 +42,7 @@ The following procedure describes how to build and run your Docker container on 
    service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   8m29s
    ```
 
-   Notice how there aren't many resources—only one kubernetes Service object—that is, there isn't anything about your app running yet.
+   Notice how there aren't many resources—only one Service Kubernetes object—that is, there isn't anything about your app running yet.
 
 1. Before you apply your Kubernetes YAML files against your cluster, do a client-side dry-run to check that things look alright—that is, form a plan about which Kubernetes objects you're going to create.
 
@@ -63,7 +63,7 @@ The following procedure describes how to build and run your Docker container on 
 
    1. _app_ ConfigMap - corresponds to the key–value pairs that configure your app; these aren't secret and you can freely store the key–value pair in version control.
    1. _app_ Deployment - corresponds to the Kubernetes object that runs your app. The relationship between Kubernetes objects is like: Deployment->ReplicaSet->Pod->Container where _->_ means _manages_.
-   1. _app_ Secret - corresponds to the secret key–value pairs that configure your app—for example, a password—; you should store the secret value in version control. One strategy to follow is: store the secret key, cloud provider secrets manager secret ID, and cloud provider secrets manager secret version ID in version control; but store your secret value in your cloud provider secrets manager. **Caution**: This example puts the secret key and value in version control for illustration purposes.
+   1. _app_ Secret - corresponds to the secret key–value pairs that configure your app—for example, a password—; you should not store the secret value in version control. One strategy to follow is: store the secret key, cloud provider secrets manager secret ID, and cloud provider secrets manager secret version ID in version control; but store your secret value in your cloud provider secrets manager. **Caution**: This example puts the secret key and value in version control for illustration purposes.
 
 1. Apply your Kubernetes YAML files against your Kuberentes cluster.
 
